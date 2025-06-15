@@ -1,3 +1,20 @@
-body{
-    background: rebeccapurple;
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.thumbnail {
+    background: blueviolet;
+    display: inline-block;
+    margin: 1rem;
+    padding: 133px 80px;
+    text-align: center;
+}
+
+.Songs {
+    background: red;
+}
+
+.Videos {
+    background: orange;
 }

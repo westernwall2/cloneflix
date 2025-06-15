@@ -3,8 +3,11 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+const videos = path.join(__dirname, 'public/media/Videos');
+const songs = path.join(__dirname, 'public/media/Songs');
 const mediaDir = path.join(__dirname, 'public/media');
 const cssDir = path.join(__dirname, 'public/css');
+const imgDir = path.join(__dirname, 'public/img');
 const jsDir = path.join(__dirname, 'public/js');
 
 app.set('view engine', 'ejs');
@@ -20,8 +23,27 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/Videos', (req, res) => {
+    fs.readdir(videos, (err, files) => {
+        if (err) {
+            return res.status(500).send('Erro ao listar arquivos');
+        }
+        res.render('videos', { files });
+    });
+});
+
+app.get('/Songs', (req, res) => {
+    fs.readdir(songs, (err, files) => {
+        if (err) {
+            return res.status(500).send('Erro ao listar arquivos');
+        }
+        res.render('songs', { files });
+    });
+});
+
 app.use('/media', express.static(mediaDir));
 app.use('/css', express.static(cssDir));
+app.use('/img', express.static(imgDir));
 app.use('/js', express.static(jsDir));
 
 
