@@ -3,7 +3,9 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const mediaDir = path.join(__dirname, 'public');
+const mediaDir = path.join(__dirname, 'public/media');
+const cssDir = path.join(__dirname, 'public/css');
+const jsDir = path.join(__dirname, 'public/js');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -18,7 +20,10 @@ app.get('/', (req, res) => {
     });
 });
 
-app.use(express.static(mediaDir));
+app.use('/media', express.static(mediaDir));
+app.use('/css', express.static(cssDir));
+app.use('/js', express.static(jsDir));
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
