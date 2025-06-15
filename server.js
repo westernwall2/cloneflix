@@ -47,7 +47,7 @@ app.use('/img', express.static(imgDir));
 app.use('/js', express.static(jsDir));
 
 
-const PORT = 3000;
+const PORT = 2025;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
