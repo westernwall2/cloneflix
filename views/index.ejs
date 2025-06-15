@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprodutor de Mídia</title>
+</head>
+<body>
+    <h1>Escolha um arquivo para reprodução</h1>
+    <ul>
+        <% files.forEach(file => { %>
+            <li><a href="/<%= file %>"><%= file %></a></li>
+        <% }) %>
+    </ul>
+</body>
+</html>
